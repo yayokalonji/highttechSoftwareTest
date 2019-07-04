@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4">Business Name </label>
+        <label class="col-md-4">Last Name </label>
         <input type="text" class="form-control" formControlName="business_name" #business_name />
       </div>
       <div *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)" class="alert alert-danger">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4">Business GST Number </label>
+        <label class="col-md-4">Credid Car Number </label>
         <input type="text" class="form-control" formControlName="business_gst_number" #business_gst_number />
       </div>
       <div *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)" class="alert alert-danger">
@@ -29,10 +29,28 @@
         </div>
       </div>
       <div class="form-group">
-        <button type="submit" 
+        <label >Fecha vencimiento</label>
+       <!-- <input type="date" name="bday" id="datepicker" data-format="MM-yyyy" class="form-control">-->
+        <input type="date" class="form-control datepicker" data-format="mm/yyyy" id="input1" name="input1">
+        
+       </div>
+       
+      <div class="form-group">
+        <button (click)="addBusiness(person_name.value, business_name.value, business_gst_number.value)"
         [disabled]="angForm.pristine || angForm.invalid" 
-        class="btn btn-primary">Add Business</button>
+        class="btn btn-primary">
+        Add Business
+     </button>
       </div>
     </form>
   </div>
 </div>
+
+<script>
+$('.datepicker').datepicker();
+$('.datepicker').datepicker({
+    format: 'mm/yyyy',
+    startDate: '-3d'
+});
+
+</script>

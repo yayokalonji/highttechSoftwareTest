@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
-
+import { BusinessService } from '../business.service';
 @Component({
   selector: 'app-gst-add',
   templateUrl: './gst-add.component.html',
@@ -9,7 +9,7 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 export class GstAddComponent implements OnInit {
 
   angForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private bs: BusinessService) {
     this.createForm();
   }
 
@@ -23,5 +23,16 @@ export class GstAddComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  addBusiness(person_name, busines_name, business_gst_number) {
+    console.log("",person_name)
+    console.log("",busines_name)
+    console.log("",business_gst_number)
+    this.bs.addBusiness(person_name, busines_name, business_gst_number);
+  }
   
+
+
+
 }
